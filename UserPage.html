@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Page</title>
+    <link rel="stylesheet" href="./userStyle.css">
+    <script src="https://kit.fontawesome.com/e799d6a9ed.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header id="header">
+        <div class="navBar" id="navBar">
+            <nav id="navBar2">
+                <ul>
+                    <li><img id="logoInNavBar" src="./Truck Images/NewLogo.jpg" alt=""></li>
+                    <li id="companyNameInNavBar">ESHWAR TRANSPORTS</li>
+                    <li><i id="userNotificationLogo" class="fa-solid fa-bell" onclick="userNotification()"></i></li>
+                    <li><i id=userProfileLogo class="fa-solid fa-user" onclick="userProfile()"></i></li>
+                    <li id="loginInNavBar" onclick="userLogout()">LOGOUT</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <i class="fa-solid fa-bell"></i>
+    <div class="serviceHeadings" id="serviceHeadings">
+        <p id="serviceList">TRUCKS AVAILABLE FOR SERVICE:</p>
+        <p id="serviceList2"></p>
+    </div>
+    <div class="userButtons2" id="userButtons2">
+        <button id="userAccepted" onclick="accept()">ACCEPTED TRUCKS</button>
+        <button id="userRejected" onclick="reject()">REJECTED TRUCKS</button>
+        <button id="userCompleted" onclick="userComplete()">COMPLETED TRUCKS</button>
+    </div>
+    <div class="mainService" id="mainService">
+        <div class="serviceContainer" id="serviceContainer" style="overflow: auto;">
+            <div id="addContainer" class="con"></div>
+        </div>
+        
+        
+    </div>
+    <div class="userNotification" id="userNotification">
+        <!-- <i id="userNotificationLogo" class="fa-solid fa-bell" onclick="userNotification()"></i> -->
+    </div>
+    <div class="userNotificationContainer" id="userNotificationContainer">
+        <div class="userNotificationAccepted" id="userNotificationAccepted">
+            <p id="userNotificationAccepted2">ACCEPTED TRUCKS:</p>
+            <p id="userNotificationAccepted3"></p>
+        </div>
+        <div class="userNotificationRejected" id="userNotificationRejected">
+            <p id="userNotificationRejected2">REJECTED TRUCKS:</p>
+            <p id="userNotificationRejected3"></p>
+        </div>
+        <div class="userNotificationCancel">
+            <i class="fa-solid fa-xmark" id="userNotificationCancelButton" onclick="userNotificationCancel()" ></i>
+        </div>
+    </div>
+
+
+    <div class="acceptedContainer" id="acceptedContainer">
+        <div class="newContainer2" id="newContainer2"></div>
+    </div>
+    <div class="acceptCancelButton">
+        <i class="fa-solid fa-xmark" id="AccpetCancelButton" onclick="acceptCancel()" ></i>
+    </div>    
+    <div class="rejectContainer" id="rejectContainer">
+        <div class="newRejectContainer" id="newRejectContainer"></div>
+            <!-- <div class="rejectImage" id="rejectImage">
+                <img id="rejectImage2" src="" alt="">
+            </div>
+            <div class="rejectTruckDetails">
+                <div class="rejectedTruckName" id="rejectedTruckName">
+                    <p id="rejectedTruckName2">TruckName:</p>
+                    <p id="rejectedTruckName3"></p>
+                </div>
+                <div class="rejectedTruckFrom" id="rejectedTruckFrom">
+                    <p id="rejectedTruckFrom2">From:</p>
+                    <p id="rejectedTruckFrom3"></p>
+                </div>
+                <div class="rejecteddTruckTo" id="rejecteddTruckTo">
+                    <p id="rejecteddTruckTo2">To:</p>
+                    <p id="rejecteddTruckTo3"></p>
+                </div>
+                <div class="rejectedTruckPrice" id="rejectedTruckPrice">
+                    <p id="rejectedTruckPrice2">Price:</p>
+                    <p id="rejectedTruckPrice3"></p>
+                </div>
+                <div class="rejectNavigateBottons">
+                    <i id="rejectPreviousButton" class="fa-solid fa-chevron-left" onclick="rejectPrevious()"></i>
+                    <i id="rejectNextButton" class="fa-solid fa-chevron-right" onclick="rejectNext()"></i>
+                </div>
+            
+            </div> -->
+            
+        </div>
+           
+    <div class="userCompltedContainer" id="userCompltedContainer">
+        <div class="userCompltedSubContainer" id="userCompltedSubContainer">
+            <!-- <div class="completedTruckImage" id="completedTruckImage">
+                <img id="completedTruckImage2" src="" alt="No Trucks Completed Trips">
+            </div>
+            <div class="completedtruckDetails"  id="completedtruckDetails">
+                <div class="completedTruckName" id="completedTruckName">
+                    <p id="completedTruckName2">Truck Name:</p>
+                    <p id="completedTruckName3"></p>
+                </div>
+                <div class="compltedTruckFrom" id="compltedTruckFrom">
+                    <p id="compltedTruckFrom2">From:</p>
+                    <p id="compltedTruckFrom3"></p>
+                </div>
+                <div class="completeTruckTo" id="completeTruckTo">
+                    <p id="completeTruckTo2">To:</p>
+                    <p id="completeTruckTo3"></p>
+                </div>
+                <div class="complteTruckAmount" id="complteTruckAmount">
+                    <p id="complteTruckAmount2">Amount in Rs:</p>
+                    <p id="complteTruckAmount3"></p>
+                </div>
+                <div class="complteTruckNavigations" id="complteTruckNavigations">
+                    <i id="compltePreviousButton" class="fa-solid fa-chevron-left" onclick=""></i>
+                    <i id="compltenextButton" class="fa-solid fa-chevron-right" onclick=""></i>
+                </div>
+                <div class="completePayNow" id="completePayNow">
+                    <button id="payNow" onclick="invoiceGenerate()">Pay Now</button>
+                </div>
+            </div>
+            
+        </div> -->
+        <div class="completeCancelButton">
+            <i class="fa-solid fa-xmark" id="completeCancelButton" onclick="completeCancel()" ></i>
+        </div>
+    </div>
+</div>
+   
+
+    <div class="userProfile" id="userProfile">
+        <!-- <i id=userProfileLogo class="fa-solid fa-user" onclick="userProfile()"></i> -->
+    </div>
+    <div class="userProfileContainer" id="userProfileContainer">
+        <div class="userName" id="userName">
+            <p id="userName2">Name:</p>
+            <p id="userName3"></p>
+        </div>
+        <div class="userPhoneNumber" id="userPhoneNumber">
+            <p id="userPhoneNumber2">Phone Number:-</p>
+            <p id="userPhoneNumber3"></p>
+        </div>
+        <div class="userEmail" id="userEmail">
+            <p id="userEmail2">Email:- </p>
+            <p id="userEmail3"></p>
+        </div>
+        <div class="userID" id="userID">
+            <p id="userID2">ID:-</p>
+            <p id="userID3"></p>
+        </div>
+        <!-- <button id="UserProfileCancel" onclick="userProfileGoBack()">Go Back</button> -->
+        <i class="fa-solid fa-xmark" id="UserProfileCancel" onclick="userProfileGoBack()" ></i>
+    </div>
+    <div class="rejectCancelButton">
+        <i class="fa-solid fa-xmark" id="rejectCancelButton222" onclick="rejectCancel()" ></i>
+    </div>
+    
+    <footer>
+        <div class="footer" id="footer">
+            <div class="cName">
+                        <pre id="cName">  ESHWAR
+TRANSPORTS</pre>
+                </pre>
+            </div>
+            <div class="location">
+                <i id="location" class="fa-solid fa-location-dot"></i>
+            </div>
+            <div class="address">
+                <pre id="addressFoot">
+                    Eshwar Transports
+                    Opposite to Royal Orchid
+                    BH Road
+                    Shivamogga-500217
+                    GST: 45FGT542800087      </pre>
+            </div>
+            <div class="call">
+                <i id="call" class="fa-solid fa-phone-volume"></i>
+            </div>
+            <div class="contactDetails">
+                <pre id="contactDetails">6363312816
+eshwartransports@gmail.com
+
+                </pre>
+            </div>
+        </div>
+    </footer>
+
+    
+    
+    
+    <script>
+        function availableTrucksForUser(){
+            const userNotification = JSON.parse(localStorage.getItem("truckDetails"))? JSON.parse(localStorage.getItem("truckDetails")): [];
+            document.getElementById('serviceList2').innerHTML=userNotification.length
+        }
+        availableTrucksForUser()
+        function notificationColo(){
+            // debugger
+            const userNotification = JSON.parse(localStorage.getItem("truckDetails"))? JSON.parse(localStorage.getItem("truckDetails")): [];
+            var accept=0;
+            var reject =0;
+            for(let i=0;i<userNotification.length;i++) {
+                if(userNotification[i].accept===true){
+                    accept++;
+                }else if(userNotification[i].reject===true){
+                    reject++;
+                }
+            }
+            if(accept>=1|| reject>=1){
+                document.getElementById('userNotificationLogo').style.color='red'
+            }
+        }
+        notificationColo();
+    
+        
+function displayTruckInfo(){
+    const truckDetails = JSON.parse(localStorage.getItem("truckDetails"))? JSON.parse(localStorage.getItem("truckDetails")): [];
+           var oContainer = document.getElementById("addContainer")
+
+            truckDetails.forEach((element,index) => {
+                let sTruckInfoDisplay = `
+            <div class="userTruckDetails" id="userTruckDetails">
+                <div class="userTruckImage">
+                    <img id="userTruckImage" src="${element.truckImage}" alt="No Trucks Added">
+                </div>
+                <div class="truckDetails">
+                    <div class="userTruckName">
+                        <p id="userTruckName">Truck Name:</p>
+                        <p id="userTruckName2">${element.truckNameLS}</p>
+                    </div>
+                    <div class="userTruckFrom">
+                        <p id="userTruckFrom">From:</p>
+                        <p id="userTruckFrom2">${element.fromcityLS}</p>
+                    </div>
+                    <div class="userTruckTo">
+                        <p id="userTruckTo">To:</p>
+                        <p id="userTruckTo2">${element.tocityLS}</p>
+                    </div>
+                    <div class="userTruckCapacity">
+                        <p id="userTruckCapacity">Capacity in Ton:</p>
+                        <p id="userTruckCapacity2">${element.capacityLS}</p>
+                    </div>
+                    <div class="userDistance">
+                        <p id="userDistance">Distancein KM:</p>
+                        <p id="userDistance2">${element.distanceLS}</p>
+                    </div>
+                    <div class="userAmount">
+                        <p id="userAmount">Amount in Rs:</p>
+                        <p id="userAmount2">${element.amountLs}</p>
+                    </div>
+                    <button id="requestButtonn${index}" onclick="userRequest(${index})" style="color:  White;font-weight:bold;background-color:rgb(3, 14, 29); margin-left:70px;margin-top:20px;width:100px;height:30px;border-radius:15px">Request</button>
+                    <button id="requestButton${index}" style="color: White;font-weight:bold;background-color:rgb(3, 14, 29); margin-left:70px;margin-top:20px;width:100px;height:30px;border-radius:15px">Requested</button>
+                    <button id="acceptedButton${index}"style="color: White;font-weight:bold;background-color:rgb(3, 14, 29); margin-left:70px;margin-top:20px;width:100px;height:30px;border-radius:15px">Accepted</button>
+                    <button id="rejectedButton${index}" style="color:  White;font-weight:bold;background-color:rgb(3, 14, 29); margin-left:70px;margin-top:20px;width:100px;height:30px;border-radius:15px">Rejected</button>
+                
+                </div>
+                
+            </div>`;
+            debugger
+            oContainer.innerHTML += sTruckInfoDisplay  
+            if(truckDetails[index].request ===false && truckDetails[index].accept===false && truckDetails[index].reject===false){
+                debugger    
+                document.getElementById(`requestButtonn${index}`).style.display='block';
+                document.getElementById(`requestButton${index}`).style.display='none';
+                document.getElementById(`acceptedButton${index}`).style.display='none';
+                document.getElementById(`rejectedButton${index}`).style.display='none';
+            }else if(truckDetails[index].request ===true && truckDetails[index].accept===false && truckDetails[index].reject==false){
+                document.getElementById(`requestButtonn${index}`).style.display='none';
+                document.getElementById(`requestButton${index}`).style.display='block';
+                document.getElementById(`acceptedButton${index}`).style.display='none';
+                document.getElementById(`rejectedButton${index}`).style.display='none';
+            }else if(truckDetails[index].request ===true && truckDetails[index].accept===true && truckDetails[index].reject===false){
+                document.getElementById(`requestButtonn${index}`).style.display='none';
+                document.getElementById(`requestButton${index}`).style.display='none';
+                document.getElementById(`acceptedButton${index}`).style.display='block';
+                document.getElementById(`rejectedButton${index}`).style.display='none';
+            }else if(truckDetails[index].request ===true && truckDetails[index].accept===false && truckDetails[index].reject===true){
+                document.getElementById(`requestButtonn${index}`).style.display='none';
+                document.getElementById(`requestButton${index}`).style.display='none';
+                document.getElementById(`acceptedButton${index}`).style.display='none';
+                document.getElementById(`rejectedButton${index}`).style.display='block';
+            }   
+        });
+
+    }
+
+displayTruckInfo();
+
+function userInfoDisplay(){
+    debugger
+    var userId=JSON.parse(localStorage.getItem('userIDForUserProfile'))
+    console.log(userId);
+    const userData = JSON.parse(localStorage.getItem("userInput"))? JSON.parse(localStorage.getItem("userInput")): [];
+    
+    for(var i=0; i<userData.length; i++){
+        if(userData[i].userIdLS==userId){
+        document.getElementById('userName3').innerHTML=userData[i].firstNameLS
+        document.getElementById('userPhoneNumber3').innerHTML=userData[i].phoneNumberLS
+        document.getElementById('userEmail3').innerHTML=userData[i].emailLS
+        document.getElementById('userID3').innerHTML=userData[i].userIdLS
+    }  
+}
+    }
+    userInfoDisplay()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    function userProfile(){
+        debugger
+        document.getElementById('userProfileContainer').style.display='block'
+        document.getElementById('userNotificationLogo').style.filter='blur(5px)'
+        document.getElementById('mainService').style.filter='blur(15px)'
+      
+}
+        function userProfileGoBack(){
+            document.getElementById('userProfileContainer').style.display='none'
+            document.getElementById('userNotificationLogo').style.filter='blur(0px)'
+            document.getElementById('mainService').style.filter='blur(0px)'
+            window.location.reload()
+        }
+        
+        function userRequest(index){
+            debugger
+            const truckDetailsForRequest = JSON.parse(localStorage.getItem("truckDetails"))? JSON.parse(localStorage.getItem("truckDetails")): [];
+            if(truckDetailsForRequest[index].request==true){
+                alert('alreay requested')
+            }else{
+                truckDetailsForRequest[index].request=true;
+                localStorage.setItem('truckDetails', JSON.stringify(truckDetailsForRequest))
+                let requestedTruckObject={
+                    TruckImage:truckDetailsForRequest[index].truckImage,
+                    TruckName:truckDetailsForRequest[index].truckNameLS,
+                    TruckFrom:truckDetailsForRequest[index].fromcityLS,
+                    TruckTo:truckDetailsForRequest[index].tocityLS,
+                    TruckPrice:truckDetailsForRequest[index].priceLS
+                }
+                const requestedTruckArray = JSON.parse(localStorage.getItem("RequestdTruckArray"))? JSON.parse(localStorage.getItem("RequestdTruckArray")): [];
+                debugger
+                requestedTruckArray.push(requestedTruckObject)
+                localStorage.setItem("RequestdTruckArray", JSON.stringify(requestedTruckArray))
+                window.location.reload()
+            }
+        }
+       
+        function accept(){
+            debugger
+            document.getElementById('acceptedContainer').style.display='block'
+            document.getElementById('mainService').style.display='none'
+            document.getElementById('AccpetCancelButton').style.display='block'
+            document.getElementById('serviceList').style.filter='blur(15px)'
+            document.getElementById('serviceList2').style.filter='blur(15px)'
+            const AcceptedtruckArray = JSON.parse(localStorage.getItem("truckDetails"))? JSON.parse(localStorage.getItem("truckDetails")): [];
+            var data=document.getElementById('newContainer2')
+            AcceptedtruckArray.forEach((element,index)=>{
+                debugger
+                let dataforInnerHtml=`<div class="acceptImage" id="acceptImage">
+            <img id="acceptImage2" src="${AcceptedtruckArray[index].truckImage}" alt="No Trucks Added">
+        </div>
+        <div class="acceptedTruckDetails" id="acceptedTruckDetails">
+            <div class="acceptedTruckName" id="acceptedTruckName">
+                <p id="acceptedTruckName2">TruckName:</p>
+                <p id="acceptedTruckName3">${AcceptedtruckArray[index].truckNameLS}</p>
+            </div>
+            <div class="acceptedTruckFrom" id="acceptedTruckFrom">
+                <p id="acceptedTruckFrom2">From:</p>
+                <p id="acceptedTruckFrom3">${AcceptedtruckArray[index].fromcityLS}</p>
+            </div>
+            <div class="acceptedTruckTo" id="acceptedTruckTo">
+                <p id="acceptedTruckTo2">To:</p>
+                <p id="acceptedTruckTo3">${AcceptedtruckArray[index].tocityLS}</p>
+            </div>
+            <div class="acceptdTruckPrice" id="acceptdTruckPrice">
+                <p id="acceptdTruckPrice2">Price in Rs:</p>
+                <p id="acceptdTruckPrice3">${AcceptedtruckArray[index].amountLs}</p>
+            </div>
+            <div class="completeButton">
+                <button id="complete${index}" onclick="acceptComplete(${index})" style="color: White;font-weight:bold;background-color:rgb(3, 14, 29); margin-left:70px;margin-top:20px;width:100px;height:30px;border-radius:15px">Complete</button>
+            </div>
+        </div>`
+        if(AcceptedtruckArray[index].accept==true && AcceptedtruckArray[index].complte==false ){
+
+            data.innerHTML+=dataforInnerHtml
+        }
+            })
+        
+        }
+        function acceptComplete(index){
+            debugger
+            const CompletdTruckArray = JSON.parse(localStorage.getItem("truckDetails"))? JSON.parse(localStorage.getItem("truckDetails")): [];
+            CompletdTruckArray[index].complte=true;
+            localStorage.setItem('truckDetails', JSON.stringify(CompletdTruckArray));
+            window.location.reload();
+        }
+        function acceptCancel(){
+            debugger
+            document.getElementById('acceptedContainer').style.display='none'
+            document.getElementById('mainService').style.display='block'
+            document.getElementById('AccpetCancelButton').style.display='none'
+            window.location.reload();
+            
+        }
+        function reject(){
+            debugger
+            document.getElementById('rejectContainer').style.display='block'
+            document.getElementById('mainService').style.display='none'
+            document.getElementById('rejectCancelButton222').style.display='block'
+            document.getElementById('serviceList').style.filter='blur(15px)'
+            document.getElementById('serviceList2').style.filter='blur(15px)'
+            const RejectedtruckArray = JSON.parse(localStorage.getItem("truckDetails"))? JSON.parse(localStorage.getItem("truckDetails")): [];
+            var data=document.getElementById('newRejectContainer')
+            RejectedtruckArray.forEach((element,index)=>{
+                let dataForInnerHTML=`<div class="rejectImage" id="rejectImage">
+                <img id="rejectImage2" src="${RejectedtruckArray[index].truckImage}" alt="">
+            </div>
+            <div class="rejectTruckDetails" id="rejectTruckDetails">
+                <div class="rejectedTruckName" id="rejectedTruckName">
+                    <p id="rejectedTruckName2">TruckName:</p>
+                    <p id="rejectedTruckName3">${RejectedtruckArray[index].truckNameLS}</p>
+                </div>
+                <div class="rejectedTruckFrom" id="rejectedTruckFrom">
+                    <p id="rejectedTruckFrom2">From:</p>
+                    <p id="rejectedTruckFrom3">${RejectedtruckArray[index].fromcityLS}</p>
+                </div>
+                <div class="rejecteddTruckTo" id="rejecteddTruckTo">
+                    <p id="rejecteddTruckTo2">To:</p>
+                    <p id="rejecteddTruckTo3">${RejectedtruckArray[index].tocityLS}</p>
+                </div>
+                <div class="rejectedTruckPrice" id="rejectedTruckPrice">
+                    <p id="rejectedTruckPrice2">Price:</p>
+                    <p id="rejectedTruckPrice3">${RejectedtruckArray[index].amountLs}</p>
+                </div>
+            </div>`
+            if(RejectedtruckArray[index].reject==true){
+
+                data.innerHTML+=dataForInnerHTML
+            }
+            })
+        }
+        function rejectCancel(){
+            debugger
+            document.getElementById('rejectContainer').style.display='none'
+            document.getElementById('mainService').style.display='block'
+            window.location.reload();
+        }
+        function userLogout(){
+            window.location.href='AdminLoginpage.html'
+        }
+       
+       
+
+
+
+        function userComplete(){
+            debugger
+            document.getElementById('userCompltedContainer').style.display='block'
+            document.getElementById('mainService').style.display='none'
+            document.getElementById('serviceList').style.filter='blur(5px)'
+            document.getElementById('serviceList2').style.filter='blur(15px)'
+            const CompltedTruckArray = JSON.parse(localStorage.getItem("truckDetails"))? JSON.parse(localStorage.getItem("truckDetails")): [];
+            var data=document.getElementById('userCompltedSubContainer')
+            CompltedTruckArray.forEach((element,index)=>{
+                var items=`<div class="completedTruckImage" id="completedTruckImage">
+                                <img id="completedTruckImage2" src="${CompltedTruckArray[index].truckImage}" alt="No Trucks Completed Trips">
+                            </div>
+                            <div class="completedtruckDetails"  id="completedtruckDetails">
+                                <div class="completedTruckName" id="completedTruckName">
+                                    <p id="completedTruckName2">Truck Name:</p>
+                                    <p id="completedTruckName3">${CompltedTruckArray[index].truckNameLS}</p>
+                                </div>
+                                <div class="compltedTruckFrom" id="compltedTruckFrom">
+                                    <p id="compltedTruckFrom2">From:</p>
+                                    <p id="compltedTruckFrom3">${CompltedTruckArray[index].fromcityLS}</p>
+                                </div>
+                                <div class="completeTruckTo" id="completeTruckTo">
+                                    <p id="completeTruckTo2">To:</p>
+                                    <p id="completeTruckTo3">${CompltedTruckArray[index].tocityLS}</p>
+                                </div>
+                                <div class="complteTruckAmount" id="complteTruckAmount">
+                                    <p id="complteTruckAmount2">Amount in Rs:</p>
+                                    <p id="complteTruckAmount3">${CompltedTruckArray[index].amountLs}</p>
+                                </div>
+                                
+                                <div class="completePayNow" id="completePayNow">
+                                    <button id="payNow" onclick="invoiceGenerate(${index})">Pay Now</button>
+                                </div>
+                            </div>`
+                if(CompltedTruckArray[index].complte===true){
+                    data.innerHTML+=items
+                }
+            })
+        }
+        function completeCancel(){
+            document.getElementById('userCompltedContainer').style.display='none'
+            document.getElementById('mainService').style.display='block'
+            window.location.reload();
+        }
+        
+
+        function userNotification(){
+            document.getElementById('userNotificationContainer').style.display='block'
+            document.getElementById('userNotificationLogo').style.filter='blur(5px)'
+            document.getElementById('mainService').style.filter='blur(15px)'
+            document.getElementById('userProfileLogo').style.filter='blur(15px)'
+            const userNotification = JSON.parse(localStorage.getItem("truckDetails"))? JSON.parse(localStorage.getItem("truckDetails")): [];
+            var accept=0;
+            var reject =0;
+            for(let i=0;i<userNotification.length;i++) {
+                if(userNotification[i].accept===true){
+                    accept++;
+                }else if(userNotification[i].reject===true){
+                    reject++;
+                }
+            }
+            if(accept>1|| reject>1){
+                document.getElementById('userProfileLogo').style.color='red'
+            }
+            document.getElementById('userNotificationAccepted3').innerHTML=accept
+            document.getElementById('userNotificationRejected3').innerHTML=accept
+            
+        }
+        function userNotificationCancel(){
+            document.getElementById('userNotificationContainer').style.display='none'
+            document.getElementById('userNotificationLogo').style.filter='blur(0px)'
+            document.getElementById('mainService').style.filter='blur(0px)'
+            window.location.reload();
+        }
+        function invoiceGenerate(index){
+            debugger
+            const InvoiceTruckArray = JSON.parse(localStorage.getItem("truckDetails"))? JSON.parse(localStorage.getItem("truckDetails")): [];
+            
+            let invoiceDataObject={
+                truckImage:InvoiceTruckArray[index].truckImage,
+                truckNameLS:InvoiceTruckArray[index].truckNameLS,
+                fromcityLS:InvoiceTruckArray[index].fromcityLS,
+                tocityLS:InvoiceTruckArray[index].tocityLS,
+                amountLs:InvoiceTruckArray[index].amountLs
+            }
+            let invoiceDataArray=[]
+            invoiceDataArray.push(invoiceDataObject);
+            localStorage.setItem('invoiceData', JSON.stringify(invoiceDataArray));
+            window.location.href='invoice.html';
+        }
+
+
+        
+        
+    </script>
+    
+</body>
+</html>

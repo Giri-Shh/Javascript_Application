@@ -1,0 +1,601 @@
+ *{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background-image: url('./Truck Images/UserpageBackground2.avif');
+    background-size: cover;
+}
+
+
+#mainService{
+    /* background-color: rgb(150, 150, 157); */
+    background-color: white;
+    height: 350px;
+    width: 800px;
+    overflow: auto;
+    margin-top: 0px;
+    border-radius: 20px;
+    margin-left: 50px;
+}
+
+#serviceHeadings{
+    display: flex;
+}
+#serviceList{
+    font-style: italic;
+    font-weight: bold;
+    font-size: 30px;
+    color: rgb(248, 246, 246);
+    margin-left: 160px;
+    text-align: center;
+    padding-top:0px;
+    font-family: 'Courier New', Courier, monospace;
+    /* position: fixed; */
+}
+#serviceList2{
+    font-style: italic;
+    font-weight: bold;
+    font-size: 30px;
+    color: rgb(248, 246, 246);
+    margin-left: 0px;
+    margin-top: -18px;
+    text-align: center;
+    padding-top: 20px;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+#userTruckDetails{
+    background-color: rgb(245, 244, 245);
+    width: 700px;
+    height: 350px;
+    margin-left: 50px;
+    margin-top: 20px;
+    border-radius: 20px;
+    box-shadow: 5px 5px 5px black;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight:bold;
+    font-size: 18px;
+    overflow:auto ;
+}
+#requestButton{
+    width: 150px;
+    height: 30px;
+    background-color: rgb(54, 53, 66);
+    color: white;
+    border-radius: 20px;
+    font-size: 20px;
+    box-shadow: 5px 5px 10px rgb(53, 53, 53);
+    margin-top: 20px;
+    margin-left: 30px;
+    display: inline;
+   
+}
+#requestButton2{
+    width: 150px;
+    height: 30px;
+    background-color: rgb(54, 53, 66);
+    color: white;
+    border-radius: 20px;
+    font-size: 20px;
+    box-shadow: 5px 5px 10px rgb(53, 53, 53);
+    margin-top: 20px;
+    margin-left: 30px;
+    display: none;
+}
+#userTruckImage{
+    margin-left: 30px;
+    margin-top: 40px;
+    width: 300px;
+    height: 250px;
+    overflow:auto;
+}
+.userTruckDetails{
+    display: flex;
+}
+.userTruckName{
+    display: flex;
+    margin-top: 40px;
+    margin-left:40px;
+}
+#userTruckName2{
+    margin-left: 10px;
+}
+.userTruckFrom{
+    display: flex;
+    margin-top: 10px;
+    margin-left:40px;
+}
+#userTruckFrom2{
+    margin-left: 10px;
+}
+.userTruckTo{
+    display: flex;
+    margin-top: 10px;
+    margin-left:40px;
+}
+.userTruckCapacity{
+    display: flex;
+    margin-top: 10px;
+    margin-left:40px;
+}
+.userDistance{
+    display: flex;
+    margin-top: 10px;
+    margin-left:40px;
+}
+.userAmount{
+    display: flex;
+    margin-top: 10px;
+    margin-left:40px;
+}
+
+#userAccepted{
+    width: 150px;
+    height: 30px;
+    background-color: rgb(152, 240, 152);
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    font-size: 15px;
+    border-radius: 15px;
+    margin-top: 50px;
+    
+}
+#userRejected{
+    width: 150px;
+    height: 30px;
+    background-color: rgb(232, 113, 10);
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    font-size: 15px;
+    border-radius: 15px;
+    margin-top: 70px;
+
+}
+#userCompleted{
+    width: 150px;
+    height: 30px;
+    border-radius: 15px;
+    background-color: rgb(241, 218, 10);
+    font-size: 15px;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    margin-top: 70px;
+}
+#userButtons2{
+    text-align: center;
+    background-color: white;
+    width: 260px;
+    height: 360px;
+    position: absolute;
+    top: 110px;
+    right: 50px;
+    border-radius: 20px;
+}
+
+#acceptedContainer{
+    width: 700px;
+    height: 310px;
+    /* background-color: rgb(18, 18, 108); */
+    background-color: white;
+    margin-left: 200px;
+    display: flex;
+    border-radius: 20px;
+    box-shadow: 5px 5px 5px rgb(117, 112, 147);
+    display: none;
+    overflow: auto;
+}
+#acceptImage2{
+    width: 400px;
+    height: 300px;
+    margin-left: 10px;
+    width: 300px;
+    height: 250px;
+    margin-top: 130px;
+}
+#acceptedTruckDetails{
+    color: black;
+    font-weight: bold;
+    font-family: 'Courier New', Courier, monospace;
+    margin-left: 400px;
+    margin-top: -250px;
+}
+#acceptedTruckName{
+    display: flex;
+    margin-top: 30px;
+}
+#acceptedTruckFrom{
+    display: flex;
+    margin-top: 20px;
+}
+#acceptedTruckTo{
+    display: flex;
+    margin-top: 20px;
+    /* margin-left: 10px; */
+}
+#acceptdTruckPrice{
+    display: flex;
+    margin-top: 20px;
+}
+#complete{
+    width: 100px;
+    height: 30px;
+    background-color: orange;
+    border-radius: 15PX;
+    position: absolute;
+    top: 210px;
+    left: 50px;
+    font-weight: bold;
+    font-style: italic;
+    font-size: 15px;
+    /* display: none; */
+}
+#AccpetCancelButton{
+    color:rgb(240, 247, 241);
+    font-size: 30px;
+    background-color: red;
+    border-radius: 100%;
+    position: absolute;
+    top: 110px;
+    right: 360px;
+    display: none;
+}
+#rejectContainer{
+    width: 700px;
+    height: 310px;
+    /* background-color: rgb(138, 130, 130); */
+    background-color: white;
+    margin-left: 200px;
+    display: flex;
+    border-radius: 20px;
+    box-shadow: 15px 15px 15px white;
+    display: none;
+    overflow: auto;
+}
+#rejectImage2{
+    width: 300px;
+    height: 210px;
+    margin-top: 60px;
+}
+#rejectTruckDetails{
+    margin-left: 350px;
+    margin-top: -200px;
+}
+#rejectedTruckName{
+    display: flex;
+    margin-top: 30px;
+}
+#rejectedTruckFrom{
+    display: flex;
+    margin-top: 20px;
+}
+#rejecteddTruckTo{
+    display: flex;
+    margin-top: 20px;
+    /* margin-left: 10px; */
+}
+#rejectedTruckPrice{
+    display: flex;
+    margin-top: 20px;
+}
+#rejectCancelButton222{
+    position: absolute;
+    top: 110px;
+    right: 360px;
+    color: white;
+    font-size:30px ;
+    background-color: red;
+    border-radius: 100%;
+    display: none;
+
+}
+#deleteNext{
+    position: absolute;
+    top: 100px;
+    left: 100px;
+}
+#deleteButton{
+    width: 100px;
+}
+#AccpetCancelButton2{
+    font-size: 40px;
+}
+#existPhonrNumber{
+    position: absolute;
+    top: 400px;
+    left: 100px;
+}
+#userCompltedSubContainer{
+    width: 700px;
+    height: 350px;
+    /* background-color: rgb(206, 192, 167); */
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    background-color: white;
+    margin-left: 150px;
+    /* display: flex; */
+    border-radius: 20px;
+    overflow: auto;
+}
+#completedTruckImage2{
+    width: 300px;
+    height: 300px;
+    margin-left: 50px;
+    margin-top: 50px;
+}
+#completedTruckName{
+    display: flex;
+}
+#completedTruckName3{
+    margin-left: 10px;
+}
+#compltedTruckFrom{
+    display: flex;
+    margin-top: 10px;
+}
+#compltedTruckFrom3{
+    margin-left: 10px;
+}
+#completeTruckTo{
+    display: flex;
+    margin-top: 10px;
+}
+#completeTruckTo3{
+    margin-left: 10px;
+}
+#complteTruckAmount{
+    display: flex;
+    margin-top: 10px;
+}
+#complteTruckAmount3{
+    margin-left: 10px;
+}
+#compltePreviousButton{
+    font-size: 40px;
+    background-color: red;
+    width: 30px;
+    border-radius: 15px;
+    position: absolute;
+    top: 190px;
+    left: 135px;
+}
+#compltenextButton{
+    font-size: 40px;
+    background-color: red;
+    width: 30px;
+    border-radius: 15px;
+    position: absolute;
+    top: 190px;
+    right: 210px;
+}
+#userCompltedContainer{
+    display: none;
+    overflow: auto;
+}
+#completedtruckDetails{
+    margin-left: 420px;
+    margin-top: -230px;
+}
+#payNow{
+    width: 100px;
+    height: 30px;
+    background-color: rgb(12, 201, 18);
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    font-size: 17px;
+    border-radius: 15px;
+    margin-top: 50px;
+}
+#completeCancelButton{
+    font-size: 30px;
+    position: absolute;
+    top: 110px;
+    right: 410px;
+    color: white;
+    background-color: red;
+    border-radius: 100%;
+}
+#userNotificationLogo{
+    font-size: 30px;
+    color: white;
+    margin-left: 140px;
+    margin-top: 10px;
+}
+#userNotificationContainer{
+    width: 300px;
+    height: 100px;
+    background-color: red;
+    border-radius: 30px;
+    position: absolute;
+    top: 110px;
+    right: 70px;
+    display: none;
+    font-family: 'Courier New', Courier, monospace;
+}
+#userNotificationAccepted{
+    display: flex;
+    margin-left: 40px;
+    margin-top: 20px;
+    font-size: 20px;
+    font-weight: bold;
+    /* font-style: italic; */
+}
+#userNotificationAccepted3{
+    margin-left: 10px;
+}
+#userNotificationRejected{
+    display: flex;
+    margin-left: 40px;
+    margin-top: 20px;
+    font-size: 20px;
+    font-weight: bold;
+    /* font-style: italic; */
+}
+#userNotificationRejected3{
+    margin-left: 10px;
+}
+#userNotificationCancelButton{
+    font-size: 40px;
+    color: black;
+    position: absolute;
+    top: -10px;
+    right: -5px;
+    background-color: yellow;
+    border-radius: 20px;
+}
+#userProfileLogo{
+    color: white;
+    font-size: 30px;
+   margin-left: 20px;
+   margin-top: 10px;
+}
+#header{
+    position: sticky;
+    top: 0px;
+    z-index: 1;
+}
+#userProfileContainer{
+    width: 300px;
+    height: 200px;
+    background-color: rgb(172, 158, 226);
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 600;
+    position: absolute;
+    top: 80px;
+    right: 100px;
+    display: none;
+    border-radius:30px ;
+    line-height: 30px;
+}
+#userName{
+    display: flex;
+    margin-top: 30px;
+    margin-left: 30px;
+}
+#userPhoneNumber{
+    display: flex;
+    margin-left: 30px;
+    margin-top: 5px;
+}
+#userEmail{
+    display: flex;
+    margin-left: 30px;
+    margin-top: 5px;
+}
+#userID{
+    display: flex;
+    margin-left: 30px;
+    margin-top: 5px;
+}
+#UserProfileCancel{
+    border-radius: 15px;
+   position: absolute;
+   top: -5px;
+   right: -5px;
+   font-size: 30px;
+   background-color: red;
+}
+#navBar{
+    width: 100%;
+    height: 60px;
+    background-color: rgb(18, 18, 108);
+}
+#logoInNavBar{
+    width: 40px;
+    border-radius: 30px;
+    height: 40px;
+    margin-top: 9px;
+    margin-left: 50px;
+
+}
+#navBar2 ul{
+    display: flex;
+    list-style: none;
+}
+#companyNameInNavBar{
+    font-size: 30px;
+    margin-left: 20px;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 700;
+    font-style: italic;
+    margin-top: 10px;
+    letter-spacing: 10px;
+    color: white;
+    margin-left: 320px;
+}
+#mailInNavBar{
+    color: white;
+    margin-top: 20px;
+    margin-left: 30px;
+}
+#loginInNavBar{
+    color: white;
+    font-size: 20px;
+    font-family: 'Courier New', Courier, monospace;
+    border: 2px solid white;
+    height: 30px;
+    width: 100px;
+    padding-top: 5px;
+    padding-left: 30px;
+    margin-left: 20px;
+    margin-top: 10px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+#footer{
+    width: 100%;
+    height: 120px;
+    background-color: rgb(18, 18, 108);
+    margin-top: 10px;
+    display: flex;
+}
+
+#signUpCancelIcon{
+    font-size: 40px;
+    position: absolute;
+    top: -20px;
+    right: -10px;
+    color: white;
+    background-color: red;
+    height: 40px;
+    width: 30px;
+    border-radius: 40px;
+}
+#cName{
+    color: white;
+    font-size: 30px;
+    font-family: 'Courier New', Courier, monospace;
+    padding-top: 10px;
+    margin-left: 100px;
+    font-weight: 700;
+    letter-spacing:10px;
+}
+#location{
+    color: white;
+    font-size: 40px;
+    margin-top:10px;
+    margin-left: 150px;
+}
+#addressFoot{
+    color: white;
+    margin-left: -180px;
+    font-family: 'Courier New', Courier, monospace;
+    margin-top: 10px;
+    font-weight: bold;
+
+}
+#call{
+    color: white;
+    font-size: 40px;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+#contactDetails{
+    color: white;
+    font-family: 'Courier New', Courier, monospace;
+    margin-top: 10px;
+    margin-left: 20px;
+}
+ 

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="file" id="myfile" >
+    <script>
+
+        document.getElementById('myfile').addEventListener('change', function(){
+            const reader=new FileReader();
+                reader.addEventListener('load',()=>{
+                console.log(reader.result);
+    });
+                reader.readAsDataURL(this.files[0]);
+        })
+
+
+    </script>
+    
+</body>
+</html>

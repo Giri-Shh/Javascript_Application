@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invoice</title>
+    <style>
+        #truckLogo{
+            width: 100px;
+            height: 50px;
+            margin-left: 600px;
+        }
+        #invoiceCompanyName{
+            color: black;
+            font-size: 30px;
+            font-family: sans-serif;
+            font-style: italic;
+            font-weight: bold;
+            text-shadow: 5px 5px 5px rgb(91, 90, 90);
+            margin-left: 200px;
+            margin-top: 15px;
+            position: absolute;
+            top: 0px;
+        
+        }
+        #orgLogo{
+            width: 100px;
+            position: absolute;
+            top: 0px;
+           left: 10px;
+            z-index: 1;
+        }
+        #companyDetails{
+            font-style: italic;
+            font-size: 15px;
+            position: absolute;
+            left: 400px;
+        }
+        #truckName{
+            display: flex;
+        }
+        #truckName3{
+            margin-left: 20px;
+        }
+        #truckFrom{
+            display: flex;
+        }
+        #truckFrom3{
+            margin-left: 20px;
+        }
+        #truckTo{
+            display: flex;
+        }
+        #truckTo3{
+            margin-left: 20px;
+        }
+        #totalAmount{
+            display: flex;
+        }
+        #totalAmount3{
+            margin-left: 20px;
+        }
+        #truckInfo{
+            font-size: 20px;
+            border: 2px solid black;
+            width: 750px;
+            /* margin-left: 450px; */
+            margin-top: 200px;
+            font-style: italic;
+            font-family: sans-serif;
+            font-weight: bold;
+            display: flex;
+        }
+        #invoicethank{
+            text-align: center;
+            font-size: 40px;
+            font-style: italic;
+            font-family: sans-serif;
+            font-weight: bold;
+        }
+        #invoiceDownload{
+            position: absolute;
+            right: 20px;
+            z-index: 1;
+            background-color: rgb(117, 115, 115);
+            height: 30px;
+            color: white;
+            border-radius: 15px;
+        }
+        #invoiceHome{
+            position: absolute;
+            top: 50px;
+            width: 100px;
+            right: 20px;
+            z-index: 1;
+            background-color: rgb(117, 115, 115);
+            height: 30px;
+            color: white;
+            border-radius: 15px;
+            font-style: italic;
+            font-size: 18px;
+        }
+        #inoviceImage{
+            width: 300px;
+            height: 250px;
+        }
+        #invoiceTruck{
+            margin-left: 20px;
+        }
+        .userName{
+            display: flex;
+        }
+        .UserIfnfo{
+            font-family: 'Courier New', Courier, monospace;
+            font-weight: bold;
+            line-height: 5px;
+        }
+        .userID{
+            display: flex;
+        }
+        .userMailId{
+            display: flex;
+        }
+        .UserPhoneNumber{
+            display: flex;
+        }
+    </style>
+    <script src="https://raw.githack.com/eKoopmans/html2pdf/master/dist/html2pdf.bundle.js"></script>
+
+    <script src="js/jsPDF/dist/jspdf.min.js"></script>
+   
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.5/jspdf.debug.js"></script>
+</head>
+<body>
+    <button id="invoiceDownload" onclick="generatePDF()">DOWNLOAD INVOICE</button>
+    <button id="invoiceHome" onclick="goHome()">Home</button>
+    <div class="invoiceGenerator" id="invoiceGenerator">
+        <img id="truckLogo" src="./Truck Images/animatedTruckforInvoice.webp" alt="">
+        <p id="invoiceCompanyName">Eshwar Transports</p>
+        <img id="orgLogo" src="./JS App Images/Logo.jpg" alt="">
+        <hr><hr>
+        <div class="UserIfnfo">
+            <div class="userName">
+                <p id="userName2">Name:</p>
+                <p id="userName3"></p>
+            </div>
+            <div class="UserPhoneNumber">
+                <p id="UserPhoneNumber2">PhoneNumber:</p>
+                <p id="UserPhoneNumber3"></p>
+            </div>
+            <div class="userMailId">
+                <p id="userMailId2">Email :</p>
+                <p id="userMailId3"></p>
+            </div>
+            <div class="userID">
+                <p id="userID2">User-ID:-</p>
+                <p id="userID3"></p>
+            </div>
+        </div>
+        <pre id="companyDetails">
+                Eshwar Transports
+                Opposite to Royal Orchid
+                BH Road
+                Shivamogga-500217
+                GST: 45FGT542800087
+                Ph-6363312817
+                eshwartransports@gmail.com        </pre>
+        <div class="truckInfo" id="truckInfo">
+            <div class="image">
+                <img src="" id="inoviceImage" alt="">
+            </div>
+                <div class="invoiceTruck" id="invoiceTruck">
+                    <div class="truckName" id="truckName">
+                        <p id="truckName2">Truck Name:</p>
+                        <p id="truckName3"></p>
+                    </div>
+                    <div class="truckFrom" id="truckFrom">
+                        <p id="truckFrom2">From:</p>
+                        <p id="truckFrom3"></p>
+                    </div>
+                    <div class="truckTo" id="truckTo">
+                        <p id="truckTo2">To:</p>
+                        <p id="truckTo3"></p>
+                    </div>
+                    <div class="totalAmount" id="totalAmount">
+                        <p id="totalAmount2">Total Amount in Rs:</p>
+                        <p id="totalAmount3"></p>
+                    </div>
+                </div>
+        </div>
+            <br><br><br><br><br><br><br>
+            <hr><hr><hr>
+            <p id="invoicethank">THANK YOU</p>
+            <hr><hr><hr><hr>
+    </div>
+    <script>
+        function invoiceDetails(){
+            debugger
+        const dataForInvoice = JSON.parse(localStorage.getItem("invoiceData"))? JSON.parse(localStorage.getItem("invoiceData")): [];
+        console.log(dataForInvoice);
+        document.getElementById('inoviceImage').src=dataForInvoice[0].truckImage
+        document.getElementById('truckName3').innerHTML=dataForInvoice[0].truckNameLS;
+        document.getElementById('truckFrom3').innerHTML=dataForInvoice[0].fromcityLS;
+        document.getElementById('truckTo3').innerHTML=dataForInvoice[0].tocityLS;
+        document.getElementById('totalAmount3').innerHTML=dataForInvoice[0].amountLs;
+
+        }
+        invoiceDetails()
+
+        function generatePDF(){
+            debugger
+            var ele=document.getElementById('invoiceGenerator')
+            html2pdf().from(ele)
+            .save('invoice.pdf')
+        }
+        function userInfoDisplay(){
+    debugger
+    var userId=JSON.parse(localStorage.getItem('userIDForUserProfile'))
+    console.log(userId);
+    const userData = JSON.parse(localStorage.getItem("userInput"))? JSON.parse(localStorage.getItem("userInput")): [];
+    
+    for(var i=0; i<userData.length; i++){
+        if(userData[i].userIdLS==userId){
+        document.getElementById('userName3').innerHTML=userData[i].firstNameLS
+        document.getElementById('UserPhoneNumber3').innerHTML=userData[i].phoneNumberLS
+        document.getElementById('userMailId3').innerHTML=userData[i].emailLS
+        document.getElementById('userID3').innerHTML=userData[i].userIdLS
+    }  
+}
+    }
+    userInfoDisplay()
+
+    function goHome(){
+        window.location.href='Userpage.html'
+    }
+
+        
+
+
+
+    </script>
+</body>
+</html>

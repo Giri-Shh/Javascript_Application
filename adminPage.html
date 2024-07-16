@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ADMIN PAGE</title>
+    <link rel="stylesheet" href="./adminPageStyle.css">
+    <script src="https://kit.fontawesome.com/e799d6a9ed.js" crossorigin="anonymous"></script>
+    <script src="./script.js"></script>
+    <style>
+
+    </style>
+</head>
+<body>
+    <header id="hello">
+        <div class="navBar" id="navBar">
+            <nav id="navBar2">
+                <ul>
+                    <li><img id="logoInNavBar" src="./Truck Images/NewLogo.jpg" alt=""></li>
+                    <li id="companyNameInNavBar">ESHWAR TRANSPORTS</li>
+                    <li> <i id="notifyLogo" class="fa-solid fa-bell" style="color: #1f41c9;" onclick="adminNotification()"></i></li>
+                    <li id="loginInNavBar" onclick="adminLogout()">LOGOUT</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <p id="availableTrucks"> TRUCKS AVAILABLE FOR SERVICE:</p>
+    <p id="availableTrucks2"></p>
+    <div class="notification" id="notification" onclick="requestSlide()">
+       
+    </div>
+    <div class="mainContainer" id="mainContainer" style="overflow: auto;">
+               <!--  <div class="adminBackground" id="adminBackground">
+                </div>
+                <div class="truckDetails">
+                    <div class="trukDisplay">
+                        <div class="truckImage">
+                            <img id="truckImage" src="" alt="">
+                        </div>
+                        <div class="truckInfo">
+                            <div class="truckName">
+                                <p id="truckName2">Truck Name:</p>
+                                <p id="truckName3"></p>
+                            </div>
+                            <div class="truckCapacity">
+                                <p id="truckCapacity2">Truck Capacity:</p>
+                                <p id="truckCapacity3"></p>
+                            </div>
+                            <div class="truckFrom">
+                                <p id="truckFrom2">From:</p>
+                                <p id="truckFrom3"></p>
+                            </div>
+                            <div class="truckTo">
+                                <p id="truckTo2">To:</p>
+                                <p id="truckTo3"></p>
+                            </div>
+                            <div class="truckPrice">
+                                <p id="truckPrice2">Truck Price:</p>
+                                <p id="truckPrice3"></p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+        </div> -->
+    </div>
+    <div class="addDeleteButons" id="addDeleteButons">
+        <button id="addButton" onclick="addTrucks()">Add Trucks</button>
+        <button id="deleteButtom" onclick="deletepopUp()">Delete Trucks</button>
+    </div>
+    
+    <div class="mainAddTrucks" id="mainAddTrucks">
+        
+    </div>
+    <div class="extraContainer" id="extraContainer">
+        <div class="addTruckDetails">
+            <label for="">Truck Name:</label>
+            <input type="text" placeholder="Truck Name" id="truckName">
+            <label for="image">Image:</label>
+            <input type="file" id="image1"><br>
+            <label for="">Truck Type:</label>
+            <select name="truckType" id="truckType" onchange="truckType()">
+                <option value="">Please Select Truck Type</option>
+                <option value="large">Large</option>
+                <option value="medium">Medium</option>
+                <option value="small">Small</option>
+            </select>
+            <select name="" id="trucks" >
+                <option value="">Select Suitable Truck</option>
+            </select><br>
+            <label for="state">From State:</label>
+            <select name="" id="fromState" onchange="fromState()">
+                <option value="">Select Your State</option>
+                <option value="Karnatake">Karnataka</option>
+                <option value="Andrapradesh">Andrapradesh</option>
+                <option value="Goa">Goa</option>
+            </select>
+            <label for="city" id="froimCity">From City</label>
+            <select name="" id="fromCity2">
+                <option value="">Select From City</option>
+            </select><br>
+            <label for="state">To State:</label>
+            <select name="" id="toState" onchange="toState()">
+                <option value="">Select Your State</option>
+                <option value="Karnatake">Karnataka</option>
+                <option value="Andrapradesh">Andrapradesh</option>
+                <option value="Goa">Goa</option>
+            </select>
+            <label for="">To City</label>
+            <select name="" id="toCity2" onchange="distance()">
+                <option value="">Select To City</option>
+            </select><br>
+            <label for="">Capacity:</label>
+            <input id="capacity" type="number" maxlength="2" placeholder="Goods weight in Ton">
+            <label for="price" id="price">Price per KM:</label>
+            <input type="text" name="" id="price2" placeholder="PRICE PER KM" oninput="price()"><br>
+            <label for="" id="distance2">Distance in KM:</label>
+            <p id="distance">00</p><br>
+            <p id="total">Total Amount (INR):</p>
+            <p id="amount">0.00</p>
+            <button id="buttonAdd" onclick="add()"> ADD</button>
+            <button id="buttonGoBack" onclick="">Go Back</button>
+            <i id="addTruckCancel"  class="fa-solid fa-xmark" onclick="goBack()"></i>
+
+            
+        </div>
+    </div>
+    <div class="adminNotification" id="adminNotification">
+       <p id="adminRequestFor">Requested For:</p>
+       <p id="adminRequestFor2">0</p>
+       <p id="adminRequestFor3"> Truks</p>
+       <div class="cancel">
+        <i class="fa-solid fa-xmark" id="cancelButton" onclick="notificationCance()" ></i>
+       </div>
+       <a href="#requestContatineMain" id="notifyScroll">Click Here For List of Trucks</a>
+    </div>
+
+    <div class="requestContatineMain" id="requestContatineMain">
+        <div class="newContainer" id="newContainer"></div>
+        <!-- <div class="notificationImage" id="notificationImage">
+            <img src="" alt="" id="notificationImage2">
+        </div>
+        <div class="notificatiponTruckDetails" id="notificatiponTruckDetails">
+            <div class="notifyTruckName" id="notifyTruckName">
+                <p id="notifyTruckName">Truck Name:</p>
+                <p id="notifyTruckName2"></p>
+            </div>
+            <div class="notifyTruckFrom" id="notifyTruckFrom">
+                <p id="notifyTruckFrom">From:</p>
+                <p id="notifyTruckFrom2"></p>
+            </div>
+            <div class="notifyTruckTo" id="notifyTruckTo">
+                <p id="notifyTruckTo">To:</p>
+                <p id="notifyTruckTo2"></p>
+            </div>
+            <div class="notifyTruckAmount" id="notifyTruckAmount">
+                <p id="notifyTruckAmount">Amount:</p>
+                <p id="notifyTruckAmount2"></p>
+            </div>
+            <div class="notifyButtons" id="notifyButtons">
+                <button id="noitifyAccept" onclick="adminAccept()">Accept</button>
+                <button id="noitifyReject" onclick="adminReject()">Reject</button>
+            </div>
+        </div> -->
+    </div>
+    <div class="deleteTruckPopUp" id="deleteTruckPopUp">
+        <!-- <div class="deleteTruckImage" id="deleteTruckImage">
+            <img src="" alt="No Trucks Added" id="deleteTruckImage2">
+        </div>
+        <div class="deleteTruckDetails">
+            <div class="deleteTruckName" id="deleteTruckName">
+                <p id="deleteTruckName2">Truck Name:</p>
+                <p id="deleteTruckName3"></p>
+            </div>
+            <div class="deletetruckFrom" id="deletetruckFrom">
+                <p id="deleteTruckFrom2">From:</p>
+                <p id="deletetruckFrom3"></p>
+            </div>
+            <div class="deletetruckTo" id="deletetruckTo">
+                <p id="deletetruckTo2">To:</p>
+                <p id="deletetruckTo3"></p>
+            </div>
+            <div class="deleteTruckAmount" id="deleteTruckAmount">
+                <p id="deleteTruckAmount2">Amount in Rs:</p>
+                <p id="deleteTruckAmount3"></p>
+            </div>
+            <div class="deleteButton">
+                <button id="deleteButton" onclick="deleteTruck()">Delete</button>
+            </div>
+        </div> -->
+    </div>
+    
+    <!-- <i   class="fa-solid fa-xmark" onclick="deleteCancel()"></i> -->
+    <i id="deleteCancel" class="fa-solid fa-xmark" onclick="deleteCancel()"></i>
+    <footer>
+        <div class="footer" id="footer">
+            <div class="cName">
+                        <pre id="cName">  ESHWAR
+TRANSPORTS</pre>
+                </pre>
+            </div>
+            <div class="location">
+                <i id="location" class="fa-solid fa-location-dot"></i>
+            </div>
+            <div class="address">
+                <pre id="addressFoot">
+                    Eshwar Transports
+                    Opposite to Royal Orchid
+                    BH Road
+                    Shivamogga-500217
+                    GST: 45FGT542800087
+                         </pre>
+            </div>
+            <div class="call">
+                <i id="call" class="fa-solid fa-phone-volume"></i>
+            </div>
+            <div class="contactDetails">
+                <pre id="contactDetails">6363312816
+eshwartransports@gmail.com
+
+                </pre>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function availableTrucks(){
+            const userNotification = JSON.parse(localStorage.getItem("truckDetails"))? JSON.parse(localStorage.getItem("truckDetails")): [];
+            document.getElementById('availableTrucks2').innerHTML=userNotification.length
+        }
+        availableTrucks()
+        function adminNotification(){
+            document.getElementById('adminNotification').style.display = 'block';
+            document.getElementById('requestContatineMain').style.display = 'block';
+
+            document.getElementById('mainContainer').style.filter='blur(15px)'
+            document.getElementById('addButton').style.filter='blur(15px)'
+            document.getElementById('deleteButtom').style.filter='blur(5px)'
+            document.getElementById('availableTrucks').style.filter='blur(5px)'
+            document.getElementById('availableTrucks2').style.filter='blur(5px)'
+            
+        }
+        function adminNotificationInfo(){
+        var request=0
+            const userNotification = JSON.parse(localStorage.getItem("truckDetails"))? JSON.parse(localStorage.getItem("truckDetails")): [];
+            for (var i = 0; i < userNotification.length;i++){
+                if(userNotification[i].request===true && userNotification[i].accept===false && userNotification[i].reject===false){
+                    request++;
+                }
+
+            }
+            document.getElementById('adminRequestFor2').innerHTML=request
+
+        }
+        adminNotificationInfo()
+        function notificationColo(){
+            debugger
+            const userNotification = JSON.parse(localStorage.getItem("truckDetails"))? JSON.parse(localStorage.getItem("truckDetails")): [];
+            var request=0;
+            for(let i=0;i<userNotification.length;i++) {
+                if(userNotification[i].request===true){
+                    request++;
+                }
+            }
+            if(request>=1){
+                document.getElementById('notifyLogo').style.color='red'
+            }
+        }
+        notificationColo();
+
+
+        function adminPageList(){
+            debugger
+            const dataForAdminPage = JSON.parse(localStorage.getItem("truckDetails"))? JSON.parse(localStorage.getItem("truckDetails")): [];
+            var adminPageScroll=document.getElementById('mainContainer')
+            for(var i = 0; i < dataForAdminPage.length; i++) {
+                debugger
+                let trucksToDisplay=`<div class="trukDisplay">
+                                                                    <div class="truckImage">
+                                                                        <img id="truckImage" src="${dataForAdminPage[i].truckImage}" alt="">
+                                                                    </div>
+                                                                    <div class="truckInfo">
+                                                                        <div class="truckName">
+                                                                            <p id="truckName2">Truck Name:</p>
+                                                                            <p id="truckName3">${dataForAdminPage[i].truckNameLS}</p>
+                                                                        </div>
+                                                                        <div class="truckFrom">
+                                                                            <p id="truckFrom2">From:</p>
+                                                                            <p id="truckFrom3">${dataForAdminPage[i].fromcityLS}</p>
+                                                                        </div>
+                                                                        <div class="truckTo">
+                                                                            <p id="truckTo2">To:</p>
+                                                                            <p id="truckTo3">${dataForAdminPage[i].tocityLS}</p>
+                                                                        </div>
+                                                                        <div class="truckPrice">
+                                                                            <p id="truckPrice2">Truck Price:</p>
+                                                                            <p id="truckPrice3">${dataForAdminPage[i].amountLs}</p>
+                                                                        </div>
+                                                                    </div>
+                                        </div>`
+        adminPageScroll.innerHTML +=trucksToDisplay
+            };
+        }
+        adminPageList()
+
+        function adminPageRequestList(){
+            const dataForAdminRequest = JSON.parse(localStorage.getItem("truckDetails"))? JSON.parse(localStorage.getItem("truckDetails")): [];
+            var  data=document.getElementById('newContainer')
+            dataForAdminRequest.forEach((element,index)=>{
+                
+                let elementsForRequest=`<div class="notificationImage" id="notificationImage">
+                                            <img src="${dataForAdminRequest[index].truckImage}" alt="" id="notificationImage2">
+                                        </div>
+                                        <div class="notificatiponTruckDetails" id="notificatiponTruckDetails">
+                                            <div class="notifyTruckName" id="notifyTruckName">
+                                                <p id="notifyTruckName">Truck Name:</p>
+                                                <p id="notifyTruckName2">${dataForAdminRequest[index].truckNameLS}</p>
+                                            </div>
+                                            <div class="notifyTruckFrom" id="notifyTruckFrom">
+                                                <p id="notifyTruckFrom">From:</p>
+                                                <p id="notifyTruckFrom2">${dataForAdminRequest[index].fromcityLS}</p>
+                                            </div>
+                                            <div class="notifyTruckTo" id="notifyTruckTo">
+                                                <p id="notifyTruckTo">To:</p>
+                                                <p id="notifyTruckTo2">${dataForAdminRequest[index].tocityLS}</p>
+                                            </div>
+                                            <div class="notifyTruckAmount" id="notifyTruckAmount">
+                                                <p id="notifyTruckAmount">Amount:</p>
+                                                <p id="notifyTruckAmount2">${dataForAdminRequest[index].amountLs}</p>
+                                            </div>
+                                            <div class="notifyButtons" id="notifyButtons">
+                                                <button id="noitifyAccept12${index}" onclick="adminAccept(${index})"style="color:  White;font-weight:bold;background-color:rgb(3, 14, 29);width:100px;height:30px;border-radius:15px">Accept</button>
+                                                <button id="noitifyReject${index}" onclick="adminReject(${index})" style="color:  White;font-weight:bold;background-color:rgb(3, 14, 29);width:100px;height:30px;border-radius:15px">Reject</button>
+                                            </div>
+                                        </div>`
+                if(dataForAdminRequest[index].request===true && dataForAdminRequest[index].accept===false && dataForAdminRequest[index].reject===false ){
+                    data.innerHTML+=elementsForRequest
+                }
+            })
+        }
+        adminPageRequestList();
+
+        
+        function truckType(){
+    // document.getElementById('trucks').style.display='block'
+    var truckType=document.getElementById('truckType').value
+    // console.log(truckType);
+    var large=`<option value="">Select Suitable Truck</option>
+                <option value="Askok Layland">Askok Layland</option>
+                <option value="Bharath Benz">Bharath benz</option>`
+    var medium=`<option value="">Select Suitable Truck</option>
+                <option value="Askok Layland">Tata Ultra</option>
+                <option value="Bharath Benz">Force 401</option>`
+    var small=`<option value="">Select Suitable Truck</option>
+                <option value="Askok Layland">Tata Ace</option>
+                <option value="Bharath Benz">Tata intra</option>`
+    if(truckType == 'medium'){
+       document.getElementById('trucks').innerHTML=medium
+    }else if(truckType=='large'){
+        document.getElementById('trucks').innerHTML=large
+    }else if(truckType=='small'){
+        document.getElementById('trucks').innerHTML=small
+    }
+}
+var fska=`<option value="">Select Your City</option>
+                <option value="Shivamogga">Shivamogga</option>
+                <option value="Davanagere">Davanagere</option>
+                <option value="Chitradurga">Chitradurga</option>`
+var fsap=`<option value="">Select Your City</option>
+                <option value="karnool">karnool</option>
+                <option value="Ananthpur">Ananthpur</option>
+                <option value="Chittor">Chittor</option>`
+var fsga=`<option value="">Select Your City</option>
+                <option value="Dharbondora">Dharbondora</option>
+                <option value="Canacona">Canacona</option>
+                <option value="Sattari">Sattari</option>`
+var wOSMG=`<option value="">Select Your City</option>
+            <option value="Davanagere">Davanagere</option>
+            <option value="Chitradurga">Chitradurga</option>`
+var woDVG=`<option value="">Select Your City</option>
+            <option value="Shivamogga">Shivamogga</option>
+            <option value="Chitradurga">Chitradurga</option>`
+var woCTD=`<option value="">Select Your City</option>
+            <option value="Shivamogga">Shivamogga</option>
+            <option value="Davanagere">Davanagere</option>`
+var elseKA=`<option value="">Select Your City</option>
+            <option value="Shivamogga">Shivamogga</option>
+            <option value="Davanagere">Davanagere</option>
+            <option value="Chitradurga">Chitradurga</option>`
+var woKNL=`<option value="">Select Your City</option>
+            <option value="Ananthpur">Ananthpur</option>
+            <option value="Chittor">Chittor</option>`
+var woATP=`<option value="">Select Your City</option>
+            <option value="karnool">karnool</option>
+            <option value="Chittor">Chittor</option>`
+var woCTR=`<option value="">Select Your City</option>
+            <option value="karnool">karnool</option>
+            <option value="Ananthpur">Ananthpur</option>`
+var elseAP=`<option value="">Select Your City</option>
+            <option value="karnool">karnool</option>
+            <option value="Ananthpur">Ananthpur</option>
+            <option value="Chittor">Chittor</option>`
+var woDBR=`<option value="">Select Your City</option>
+            <option value="Canacona">Canacona</option>
+            <option value="Sattari">Sattari</option>`
+var woCNCN=`<option value="">Select Your City</option>
+            <option value="Dharbondora">Dharbondora</option>
+            <option value="Sattari">Sattari</option>`
+var woSTR=`<option value="">Select Your City</option>
+            <option value="Dharbondora">Dharbondora</option>
+            <option value="Canacona">Canacona</option>
+            <option value="Sattari">Sattari</option>`
+var elsGA=`<option value="">Select Your City</option>
+            <option value="Dharbondora">Dharbondora</option>
+            <option value="Canacona">Canacona</option>
+            <option value="Sattari">Sattari</option>`
+function fromState(){
+    // debugger
+    var fromState = document.getElementById('fromState').value
+    // console.log(fromState);
+    if(fromState =='Karnatake'){
+        document.getElementById('fromCity2').innerHTML=fska
+    }else if(fromState =='Andrapradesh'){
+        document.getElementById('fromCity2').innerHTML=fsap
+    }else if(fromState =='Goa'){
+        document.getElementById('fromCity2').innerHTML=fsga
+    }
+}
+function toState(){
+    // debugger
+    var toCity2 = document.getElementById('toState').value
+    var fromCity=document.getElementById('fromCity2').value
+    if(toCity2 =='Karnatake'){
+        if(fromCity=='Shivamogga'){
+        document.getElementById('toCity2').innerHTML=wOSMG
+        }else if(fromCity=='Davanagere'){
+        document.getElementById('toCity2').innerHTML=woDVG
+        }else if(fromCity=='Chitradurga'){
+        document.getElementById('toCity2').innerHTML=woCTD
+        }else{
+            document.getElementById('toCity2').innerHTML=elseKA
+        }
+    }else if(toCity2=='Andrapradesh'){
+        if(fromCity=='karnool'){
+        document.getElementById('toCity2').innerHTML=woKNL
+        }else if(fromCity=='Ananthpur'){
+        document.getElementById('toCity2').innerHTML=woATP
+        }else if(fromCity=='Chittor'){
+        document.getElementById('toCity2').innerHTML=woCTR
+        }else{
+            document.getElementById('toCity2').innerHTML=elseAP
+        }
+    }else if(toCity2 =='Goa'){
+        if(fromCity2 =='Dharbondora'){
+            document.getElementById('toCity2').innerHTML=woDBR
+        }else if(fromCity2 =='Canacona'){
+            document.getElementById('toCity2').innerHTML=woCNCN
+        }else if(fromCity2 =='Sattari'){
+            document.getElementById('toCity2').innerHTML=woSTR
+        }else{
+            document.getElementById('toCity2').innerHTML=elsGA
+        }
+    }
+}
+
+
+function distance(){
+    // debugger
+    var fromCity = document.getElementById('fromCity2').value
+    var toCity = document.getElementById('toCity2').value
+    console.log(fromCity);
+    console.log(toCity);
+
+    if(fromCity=='Shivamogga'){
+        if(toCity.value=='Davanagere'){
+            document.getElementById('distance').innerHTML='100'
+        }else if(toCity=='Chitradurga'){
+            document.getElementById('distance').innerHTML='120'
+        }else if(toCity=='karnool'){
+            document.getElementById('distance').innerHTML='140'
+        }else if(toCity=='Ananthpur'){
+            document.getElementById('distance').innerHTML='350'
+        }else if(toCity=='Chittor'){
+            document.getElementById('distance').innerHTML='240'
+        }else if(toCity=='Dharbondora'){
+            document.getElementById('distance').innerHTML='720'
+        }else if(toCity=='Canacona'){
+            document.getElementById('distance').innerHTML='300'
+        }else if(toCity=='Sattari'){
+            document.getElementById('distance').innerHTML='750'
+        }
+    }else if(fromCity=='Davanagere'){
+        if(toCity=='Shivamogga'){
+            document.getElementById('distance').innerHTML='100'
+        }else if(toCity=='Chitradurga'){
+            document.getElementById('distance').innerHTML='100'
+        }else if(toCity=='karnool'){
+            document.getElementById('distance').innerHTML='220'
+        }else if(toCity=='Ananthpur'){
+            document.getElementById('distance').innerHTML='310'
+        }else if(toCity=='Chittor'){
+            document.getElementById('distance').innerHTML='320'
+        }else if(toCity=='Dharbondora'){
+            document.getElementById('distance').innerHTML='740'
+        }else  if(toCity=='Canacona'){
+            document.getElementById('distance').innerHTML='210'
+        }else if(toCity=='Sattari'){
+            document.getElementById('distance').innerHTML='700'
+        }
+    }else if(fromCity=='Chitradurga'){
+        if(toCity=='Shivamogga'){
+            document.getElementById('distance').innerHTML='120'
+        }else if(toCity=='Davanagere'){
+            document.getElementById('distance').innerHTML='100'
+        }else if(toCity=='karnool'){
+            document.getElementById('distance').innerHTML='90'
+        }else if(toCity=='Ananthpur'){
+            document.getElementById('distance').innerHTML='120'
+        }else if(toCity=='Chittor'){
+            document.getElementById('distance').innerHTML='230'
+        }else if(toCity=='Dharbondora'){
+            document.getElementById('distance').innerHTML='760'
+        }else if(toCity=='Canacona'){
+            document.getElementById('distance').innerHTML='140'
+        }else if(toCity=='Sattari'){
+            document.getElementById('distance').innerHTML='420'
+        }
+    }else if(fromCity=='karnool'){
+        if(toCity=='Shivamogga'){
+            document.getElementById('distance').innerHTML='140'
+        }else if(fromCity=='Davanagere'){
+            document.getElementById('distance').innerHTML='100'
+        }else if(fromCity=='Chitradurga'){
+            document.getElementById('distance').innerHTML='140'
+        }else if(fromCity=='Ananthpur'){
+            document.getElementById('distance').innerHTML='140'
+        }else if(fromCity=='Chittor'){
+            document.getElementById('distance').innerHTML='100'
+        }else if(fromCity=='Dharbondora'){
+            document.getElementById('distance').innerHTML='550'
+        }else if(fromCity=='Canacona'){
+            document.getElementById('distance').innerHTML='520'
+        }else if(fromCity=='Sattari'){
+            document.getElementById('distance').innerHTML='230'
+        }
+    }else if(fromCity=='Ananthpur'){
+        if(toCity=='Shivamogga'){
+            document.getElementById('distance').innerHTML='350'
+        }else if(toCity=='Davanagere'){
+            document.getElementById('distance').innerHTML='310'
+        }else if(toCity=='Chitradurga'){
+            document.getElementById('distance').innerHTML='120'
+        }else if(toCity=='karnool'){
+            document.getElementById('distance').innerHTML='140'
+        }else if(toCity=='Chittor'){
+            document.getElementById('distance').innerHTML='170'
+        }else if(toCity=='Dharbondora'){
+            document.getElementById('distance').innerHTML='750'
+        }else if(toCity=='Canacona'){
+            document.getElementById('distance').innerHTML='840'
+        }else if(toCity=='Sattari'){
+            document.getElementById('distance').innerHTML='790'
+        }
+    }else if(fromCity=='Chittor'){
+        if(toCity=='Shivamogga'){
+            document.getElementById('distance').innerHTML='240'
+        }else if(toCity=='Davanagere'){
+            document.getElementById('distance').innerHTML='320'
+        }else if(toCity=='Chitradurga'){
+            document.getElementById('distance').innerHTML='230'
+        }else if(toCity=='karnool'){
+            document.getElementById('distance').innerHTML='100'
+        }else if(toCity=='Ananthpur'){
+            document.getElementById('distance').innerHTML='170'
+        }else if(toCity=='Dharbondora'){
+            document.getElementById('distance').innerHTML='450'
+        }else if(toCity=='Canacona'){
+            document.getElementById('distance').innerHTML='250'
+        }else if(toCity=='Sattari'){
+            document.getElementById('distance').innerHTML='450'
+        }
+    }else if(fromCity=='Dharbondora'){
+        if(toCity=='Shivamogga'){
+            document.getElementById('distance').innerHTML='720'
+        }else if(toCity=='Davanagere'){
+            document.getElementById('distance').innerHTML='740'
+        }else if(toCity=='Chitradurga'){
+            document.getElementById('distance').innerHTML='760'
+        }else if(toCity=='karnool'){
+            document.getElementById('distance').innerHTML='550'
+        }else if(toCity=='Ananthpur'){
+            document.getElementById('distance').innerHTML='750'
+        }else if(toCity=='Chittor'){
+            document.getElementById('distance').innerHTML='450'
+        }else if(toCity=='Canacona'){
+            document.getElementById('distance').innerHTML='80'
+        }else if(toCity=='Sattari'){
+            document.getElementById('distance').innerHTML='150'
+        }
+    }else if(fromCity=='Canacona'){
+        if(toCity=='Shivamogga'){
+            document.getElementById('distance').innerHTML='300'
+        }else if(toCity=='Davanagere'){
+            document.getElementById('distance').innerHTML='740'
+        }else if(toCity=='Chitradurga'){
+            document.getElementById('distance').innerHTML='140'
+        }else if(toCity=='karnool'){
+            document.getElementById('distance').innerHTML='520'
+        }else if(toCity=='Ananthpur'){
+            document.getElementById('distance').innerHTML='840'
+        }else if(toCity=='Chittor'){
+            document.getElementById('distance').innerHTML='250'
+        }else if(toCity=='Dharbondora'){
+            document.getElementById('distance').innerHTML='80'
+        }else if(toCity=='Sattari'){
+            document.getElementById('distance').innerHTML='70'
+        }
+    }else if(fromCity=='Sattari'){
+        if(toCity=='Shivamogga'){
+            document.getElementById('distance').innerHTML='750'
+        }else if(toCity=='Davanagere'){
+            document.getElementById('distance').innerHTML='740'
+        }else if(toCity=='Chitradurga'){
+            document.getElementById('distance').innerHTML='420'
+        }else if(toCity=='karnool'){
+            document.getElementById('distance').innerHTML='230'
+        }else if(toCity=='Ananthpur'){
+            document.getElementById('distance').innerHTML='790'
+        }else if(toCity=='Chittor'){
+            document.getElementById('distance').innerHTML='450'
+        }else if(toCity=='Dharbondora'){
+            document.getElementById('distance').innerHTML='150'
+        }else if(toCity=='Canacona'){
+            document.getElementById('distance').innerHTML='70'
+        }
+    }
+}
+        function add(){
+            // debugger
+            var truckName=document.getElementById('truckName').value
+            var fromState=document.getElementById('fromState').value
+            var fromcity=document.getElementById('fromCity2').value
+            var toState=document.getElementById('toState').value
+            var tocity=document.getElementById('toCity2').value
+            var capacity=document.getElementById('capacity').value
+            var price=document.getElementById('price2').value
+            var distance=document.getElementById('distance').innerHTML
+            var amount=document.getElementById('amount').innerHTML
+            let truckObject={
+                    truckNameLS:truckName,
+                    truckImage:y,    
+                    fromStateLS:fromState,
+                    fromcityLS:fromcity,
+                    toStateLS:toState,
+                    tocityLS:tocity,
+                    capacityLS:capacity,
+                    priceLS:price,
+                    distanceLS:distance,
+                    amountLs:amount,
+                    request:false,
+                    accept:false,
+                    reject:false,
+                    complte:false
+                }
+            const truckDetailsFromLS = JSON.parse(localStorage.getItem("truckDetails"))? JSON.parse(localStorage.getItem("truckDetails")): []
+            truckDetailsFromLS.push(truckObject)
+            localStorage.setItem("truckDetails",JSON.stringify(truckDetailsFromLS))
+            alert('Truck Added successfully')
+            window.location.reload
+  
+        }
+
+        var y;
+        var getimg;
+        var X=document.querySelector("#image1").addEventListener("change", function(){
+            // debugger
+            // const imageFromLS = JSON.parse(localStorage.getItem("image"))? JSON.parse(localStorage.getItem("iamge")): []
+            var reader=new FileReader();
+            reader.addEventListener('load',()=>{
+                    // localStorage.setItem('image',reader.result)
+                  y=reader.result;
+                  console.log(y);
+                })
+                reader.readAsDataURL(this.files[0])
+            });
+            document.addEventListener('DOMContentLoaded',()=>{
+            getimg=localStorage.getItem('image');
+          
+        })
+      
+        
+
+
+        
+        function notificationCance(){
+            document.getElementById('adminNotification').style.display='none'
+            document.getElementById('mainContainer').style.filter='blur(0px)'
+            window.location.reload()
+        }
+
+        
+
+        function adminAccept(index){
+            // debugger
+            const dataForAcceptButton = JSON.parse(localStorage.getItem("truckDetails"))? JSON.parse(localStorage.getItem("truckDetails")): [];
+            dataForAcceptButton[index].accept=true;
+            localStorage.setItem("truckDetails",JSON.stringify(dataForAcceptButton))
+            alert('Truck Accepted successfully')
+            const dataFromAcceptedTruckArray = JSON.parse(localStorage.getItem("AcceptedtruckArray"))? JSON.parse(localStorage.getItem("AcceptedtruckArray")): [];
+            let acceptedTruckObject={
+                TruckImage:dataForAcceptButton[index].truckImage,
+                TruckName:dataForAcceptButton[index].truckNameLS,
+                TruckFrom:dataForAcceptButton[index].fromcityLS,
+                TruckTo:dataForAcceptButton[index].tocityLS,
+                TruckAmount:dataForAcceptButton[index].amountLs
+            }
+            dataFromAcceptedTruckArray.push(acceptedTruckObject)
+            localStorage.setItem("AcceptedtruckArray",JSON.stringify(dataFromAcceptedTruckArray))
+            window.location.reload();
+        }
+        function adminReject(index){
+            // debugger
+            const dataForRejectButton = JSON.parse(localStorage.getItem("truckDetails"))? JSON.parse(localStorage.getItem("truckDetails")): [];
+            dataForRejectButton[index].reject=true;
+            localStorage.setItem("truckDetails",JSON.stringify(dataForRejectButton))
+            alert('Truck Rejected successfully')
+            const dataFromAcceptedTruckArray = JSON.parse(localStorage.getItem("AcceptedtruckArray"))? JSON.parse(localStorage.getItem("AcceptedtruckArray")): [];
+            let rejectedTruckObject={
+                TruckImage:dataForRejectButton[index].truckImage,
+                TruckName:dataForRejectButton[index].truckNameLS,
+                TruckFrom:dataForRejectButton[index].fromcityLS,
+                TruckTo:dataForRejectButton[index].tocityLS,
+                TruckAmount:dataForRejectButton[index].amountLs
+            }
+            dataForRejectButton.push(rejectedTruckObject)
+            localStorage.setItem("RejectedTruckArray",JSON.stringify(dataFromAcceptedTruckArray))
+            window.location.reload();
+        }
+        function adminLogout(){
+            window.location.href='AdminLoginPage.html'
+        }  
+        function deleteTruck(index){
+            // debugger
+            const dataForRejectButton = JSON.parse(localStorage.getItem("truckDetails"))? JSON.parse(localStorage.getItem("truckDetails")): [];
+
+            dataForRejectButton.splice(index,1);
+            localStorage.setItem('truckDetails',JSON.stringify(dataForRejectButton))
+            window.location.reload();
+        }
+        function deletepopUp(){
+            // debugger
+            document.getElementById('deleteTruckPopUp').style.display='block'
+            document.getElementById('requestContatineMain').style.display='none'
+            document.getElementById('mainContainer').style.display='none'
+            document.getElementById('deleteCancel').style.display='block'
+            document.getElementById('availableTrucks').style.display='none'
+            document.getElementById('addButton').style.display='none'
+            document.getElementById('deleteButtom').style.display='none'
+            document.getElementById('availableTrucks2').style.display='none'
+            const dataForAdminDelete = JSON.parse(localStorage.getItem("truckDetails"))? JSON.parse(localStorage.getItem("truckDetails")): [];
+            var data=document.getElementById('deleteTruckPopUp')
+            dataForAdminDelete.forEach((element,index)=>{
+                // debugger
+                var dataForDelete=`<div class="deleteTruckImage" id="deleteTruckImage">
+            <img src="${dataForAdminDelete[index].truckImage}" alt="No Trucks Added" id="deleteTruckImage2">
+        </div>
+        <div class="deleteTruckDetails" id='deleteTruckDetails'>
+            <div class="deleteTruckName" id="deleteTruckName">
+                <p id="deleteTruckName2">Truck Name:</p>
+                <p id="deleteTruckName3">${dataForAdminDelete[index].truckNameLS}</p>
+            </div>
+            <div class="deletetruckFrom" id="deletetruckFrom">
+                <p id="deleteTruckFrom2">From:</p>
+                <p id="deletetruckFrom3">${dataForAdminDelete[index].fromcityLS}</p>
+            </div>
+            <div class="deletetruckTo" id="deletetruckTo">
+                <p id="deletetruckTo2">To:</p>
+                <p id="deletetruckTo3">${dataForAdminDelete[index].tocityLS}</p>
+            </div>
+            <div class="deleteTruckAmount" id="deleteTruckAmount">
+                <p id="deleteTruckAmount2">Amount in Rs:</p>
+                <p id="deleteTruckAmount3">${dataForAdminDelete[index].amountLs}</p>
+            </div>
+            <div class="deleteButton">
+                <button id="deleteButton${index}" onclick="deleteTruck(${index})" style="color: rgb(163, 194, 219);background-color:rgb(3, 14, 29); margin-left:70px;margin-top:20px;width:100px;height:30px;border-radius:15px">Delete</button>
+            </div>
+        </div>`
+        data.innerHTML+=dataForDelete;
+            })
+        }
+        function deleteCancel(){
+            // debugger
+            document.getElementById('deleteCancel').style.display='none'
+            document.getElementById('deleteTruckPopUp').style.display='none'
+            document.getElementById('requestContatineMain').style.display='block'
+            document.getElementById('mainContainer').style.display='block'
+            document.getElementById('availableTrucks').style.display='block'
+            document.getElementById('addButton').style.display='block'
+            document.getElementById('deleteButtom').style.display='block'
+            document.getElementById('availableTrucks2').style.display='block'
+            window,location.reload()
+        }
+        function requestSlide(){
+            document.getElementById('requestContatineMain').style.display='block'
+            // document.getElementById('mainContainer').style.display='none'
+        }
+        
+    </script>
+</body>
+</html>
+

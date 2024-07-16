@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eshwar Transports</title>
+    <link rel="stylesheet" href="./Style.css">
+    <script src="./script.js"></script>
+    <script src="https://kit.fontawesome.com/e799d6a9ed.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header id="header">
+        <div class="navBar" id="navBar">
+            <nav id="navBar2">
+                <ul>
+                    <li><img id="logoInNavBar" src="./Truck Images/NewLogo.jpg" alt=""></li>
+                    <li id="companyNameInNavBar">ESHWAR TRANSPORTS</li>
+                    <li id="mailInNavBar">eshwartransports@gmail.com</li>
+                    <li id="loginInNavBar"><a href="#login">LOGIN</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="welComeLogo">
+        <img id="logo" src="./JS App Images/Logo.jpg" alt="logo">
+        <div> 
+            <p id="CompanyName">Eshwar Transports</p>
+            <p id="tagLine">SINCE 1997</p>
+        </div>
+    </div>
+    
+    <div class="login" id="login">
+        <input id="uid" type="text" placeholder="USER ID"><br>
+        <p id="incorrectUserId">UserID is Incorrect</p>
+        <input id="pwd" type="password" placeholder="PASSWORD"><br>
+        <p id="incorrectPWD">PASSWORD is Incorrect</p>
+        <button id="loginButton"  onclick="login()">LOGIN</button>
+        <button id="cancelButton" onclick="loginpageClear()">Cancel</button><br>
+        <button id="signUpButton" onclick="signUp()"> Sign-Up</button>
+    </div>
+    <div class="dummy" id="originalPopUp">
+        <div class="signUpPopUp" id="popUpPage">
+            <p id="heading">Create Your Account Here</p>
+            <input id="firstName" oninput="inputfirstName()" type="text" placeholder="First Name">
+            <p id="emptyName">Enter Your Name</p>
+            <input type="text" name="" id="lastName" placeholder="Last Name" onclick="inputLastName()">
+            <p id="emptyLastName">Enter Your Last Name</p>
+            <input type="number" id="phNumber" placeholder="Phone Number" onclick="inputPhoneNumber()">
+            <p id="emptyPhoneNumber">Enter Your Phone Number</p>
+            <P id="existPhoneNumber">Phone Number Exists</P>
+            <input type="email" placeholder="Email" id="email" onclick="inputEmail()">
+            <p id="emptyMail">Enter Your Email</p>
+            <p id="existEmail">Email Already Exists</p>
+            <p id="validEmail">Please Enter Valid Email</p>
+            <input type="text" placeholder="State" id="state" onclick="inputState()">
+            <p id="emptyState">Enter Your State</p>
+            <input type="text" id="city" placeholder="City" onclick="inputLastCity()"> 
+            <p id="emptyCity">Enter Your City</p>   
+            <input type="text" id="enterPassword" placeholder="Enter your Password" onclick="inputEnterPassword()">
+            <p id="emptyFirstPassword">Enter Your First Password</p>
+            <input type="password" id="confirmPassword" placeholder="Confirm Your Password" onclick="inputConfirmPassword()"><br>
+            <p id="emptyConfirmPassword">Enter Passward Again</p>
+            <p id="diffPwd">Password Do Not Matching</p>
+            <p id="pwdpattern">Must Follow Xx$12 pattern</p>
+            <button id="signUpButton2" onclick="getData()">Sign-Up</button>
+            <button id="cancelButton2" onclick="clear1()">CLEAR</button>
+            <i id="signUpCancelIcon"  class="fa-solid fa-xmark" onclick="loginCancel()"></i>
+
+        </div>
+    </div>
+    <footer>
+        <div class="footer" id="footer">
+            <div class="cName">
+                        <pre id="cName">  ESHWAR
+TRANSPORTS</pre>
+                </pre>
+            </div>
+            <div class="location">
+                <i id="location" class="fa-solid fa-location-dot"></i>
+            </div>
+            <div class="address">
+                <pre id="addressFoot">
+                    Eshwar Transports
+                    Opposite to Royal Orchid
+                    BH Road
+                    Shivamogga-500217
+                    GST: 45FGT542800087</pre>
+            </div>
+            <div class="call">
+                <i id="call" class="fa-solid fa-phone-volume"></i>
+            </div>
+            <div class="contactDetails">
+                <pre id="contactDetails">6363312816
+eshwartransports@gmail.com
+                </pre>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- <img src="./Truck Images/GIFS11.gif" alt=""> -->
+    <script>
+        function clear1(){
+    debugger
+    document.getElementById('firstName').value=""
+    document.getElementById('lastName').value=""
+    document.getElementById('phNumber').value=""
+    document.getElementById('email').value=""
+    document.getElementById('state').value=""
+    document.getElementById('city').value=""
+    document.getElementById('enterPassword').value=""
+    document.getElementById('confirmPassword').value=""
+}
+    </script>
+</body>
+</html>
